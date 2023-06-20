@@ -1,0 +1,101 @@
+.gameBoard {
+    background-color: #282c34;
+    height: 100vh;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 1em;
+    max-width: 1400px;
+    margin-right: auto;
+    margin-left: auto;
+    color:white;
+    padding: 1em;
+}
+
+.gameBoard > div {
+    border-radius: 25px;
+    background-color: #1b1c2c;
+    padding: 1em;
+}
+
+.score {
+    align-self: start;
+}
+
+.playspace {
+    
+}
+
+.answers {
+    
+}
+
+.input {
+    min-height: 2rem;
+}
+
+.keyboard {
+    display: grid;
+    grid-gap: .25em;
+    grid-template-areas: 
+    "q w e r t y u i o p backspace backspace"
+    "a s d f g h j k l submit submit submit"
+    ". . z x c v b n m . . .";
+}
+
+.keyboard > button {
+    padding: 1em;;
+}
+
+.pressesLeft-0 {
+    background-color: darkslategray;
+}
+
+.pressesLeft-1 {
+    background-color: darkred;
+}
+
+.pressesLeft-2 {
+    background-color: goldenrod;
+}
+
+.pressesLeft-3 {
+    background-color: turquoise;
+}
+
+.keyLetter {
+    font-size: x-large;
+}
+
+.keyValue {
+    font-size: x-small;
+}
+
+.backspace {grid-area: backspace;}
+.submit {grid-area: submit;}
+.a {grid-area: a;}
+.b {grid-area: b;}
+.c {grid-area: c;}
+.d {grid-area: d;}
+.e {grid-area: e;}
+.f {grid-area: f;}
+.g {grid-area: g;}
+.h {grid-area: h;}
+.i {grid-area: i;}
+.j {grid-area: j;}
+.k {grid-area: k;}
+.l {grid-area: l;}
+.m {grid-area: m;}
+.n {grid-area: n;}
+.o {grid-area: o;}
+.p {grid-area: p;}
+.q {grid-area: q;}
+.r {grid-area: r;}
+.s {grid-area: s;}
+.t {grid-area: t;}
+.u {grid-area: u;}
+.v {grid-area: v;}
+.w {grid-area: w;}
+.x {grid-area: x;}
+.y {grid-area: y;}
+.z {grid-area: z;}

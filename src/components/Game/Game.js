@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { wordLengthOptions, alphabet } from '../../utility/constants';
+import { wordLengthOptions, alphabet, PossiblePresses } from '../../utility/constants';
 import './Game.css';
 import { threeLetterWords, fourLetterWords, fiveLetterWords, sixLetterWords, sevenLetterWords } from '../../utility/words';
 
@@ -28,14 +28,14 @@ function Game() {
     var [CurrentWord, setCurrentWord] = useState([]);
     function processLetterPress(letter){
         if(CurrentWord.length >= CurrentWordLength) return; //add feedback for letter length met
-        letter.pressesLeft--;
+        PressesLeftAdjustor(letter, true)
         //find dom element and update class
         setCurrentWord(arr => [...arr, `${letter}`]);
     }
     function Backspace() {
         if(CurrentWord.length <= 0) return;
-        let letterObj = alphabet.find(a => a.letter == CurrentWord[CurrentWord.length - 1]);
-        letterObj.pressesLeft++;
+        let letter = CurrentWord[CurrentWord.length - 1];        
+        PressesLeftAdjustor(letter, false);
         //find dom element and update classupdate class
         setCurrentWord((arr) => arr.slice(0, -1));
     }
@@ -48,17 +48,72 @@ function Game() {
         setAnswers( arr => [...arr, `${word}`]);
     }
 
+    var [PressesLeftA, setPRessesLeftA] = useState(3);
+    var [PressesLeftB, setPRessesLeftB] = useState(3);
+    var [PressesLeftC, setPRessesLeftC] = useState(3);
+    var [PressesLeftD, setPRessesLeftD] = useState(3);
+    var [PressesLeftE, setPRessesLeftE] = useState(3);
+    var [PressesLeftF, setPRessesLeftF] = useState(3);
+    var [PressesLeftG, setPRessesLeftG] = useState(3);
+    var [PressesLeftH, setPRessesLeftH] = useState(3);
+    var [PressesLeftI, setPRessesLeftI] = useState(3);
+    var [PressesLeftJ, setPRessesLeftJ] = useState(3);
+    var [PressesLeftK, setPRessesLeftK] = useState(3);
+    var [PressesLeftL, setPRessesLeftL] = useState(3);
+    var [PressesLeftM, setPRessesLeftM] = useState(3);
+    var [PressesLeftN, setPRessesLeftN] = useState(3);
+    var [PressesLeftO, setPRessesLeftO] = useState(3);
+    var [PressesLeftP, setPRessesLeftP] = useState(3);
+    var [PressesLeftQ, setPRessesLeftQ] = useState(3);
+    var [PressesLeftR, setPRessesLeftR] = useState(3);
+    var [PressesLeftT, setPRessesLeftS] = useState(3);
+    var [PressesLeftS, setPRessesLeftT] = useState(3);
+    var [PressesLeftU, setPRessesLeftU] = useState(3);
+    var [PressesLeftV, setPRessesLeftV] = useState(3);
+    var [PressesLeftW, setPRessesLeftW] = useState(3);
+    var [PressesLeftX, setPRessesLeftX] = useState(3);
+    var [PressesLeftY, setPRessesLeftY] = useState(3);
+    var [PressesLeftZ, setPRessesLeftZ] = useState(3);
+    function PressesLeftAdjustor(letter, areWeIncrementing) {
+        if(letter == "a") setPRessesLeftA(areWeIncrementing ? PressesLeftA++ : PressesLeftA--)
+        if(letter == "b") setPRessesLeftB(areWeIncrementing ? PressesLeftB++ : PressesLeftB--)
+        if(letter == "c") setPRessesLeftC(areWeIncrementing ? PressesLeftC++ : PressesLeftC--)
+        if(letter == "d") setPRessesLeftD(areWeIncrementing ? PressesLeftD++ : PressesLeftD--)
+        if(letter == "e") setPRessesLeftE(areWeIncrementing ? PressesLeftE++ : PressesLeftE--)
+        if(letter == "f") setPRessesLeftF(areWeIncrementing ? PressesLeftF++ : PressesLeftF--)
+        if(letter == "g") setPRessesLeftG(areWeIncrementing ? PressesLeftG++ : PressesLeftG--)
+        if(letter == "h") setPRessesLeftH(areWeIncrementing ? PressesLeftH++ : PressesLeftH--)
+        if(letter == "i") setPRessesLeftI(areWeIncrementing ? PressesLeftI++ : PressesLeftI--)
+        if(letter == "j") setPRessesLeftJ(areWeIncrementing ? PressesLeftJ++ : PressesLeftJ--)
+        if(letter == "k") setPRessesLeftK(areWeIncrementing ? PressesLeftK++ : PressesLeftK--)
+        if(letter == "l") setPRessesLeftL(areWeIncrementing ? PressesLeftL++ : PressesLeftL--)
+        if(letter == "m") setPRessesLeftM(areWeIncrementing ? PressesLeftM++ : PressesLeftM--)
+        if(letter == "n") setPRessesLeftN(areWeIncrementing ? PressesLeftN++ : PressesLeftN--)
+        if(letter == "o") setPRessesLeftO(areWeIncrementing ? PressesLeftO++ : PressesLeftO--)
+        if(letter == "p") setPRessesLeftP(areWeIncrementing ? PressesLeftP++ : PressesLeftP--)
+        if(letter == "q") setPRessesLeftQ(areWeIncrementing ? PressesLeftQ++ : PressesLeftQ--)
+        if(letter == "r") setPRessesLeftR(areWeIncrementing ? PressesLeftR++ : PressesLeftR--)
+        if(letter == "s") setPRessesLeftS(areWeIncrementing ? PressesLeftS++ : PressesLeftS--)
+        if(letter == "t") setPRessesLeftT(areWeIncrementing ? PressesLeftT++ : PressesLeftT--)
+        if(letter == "u") setPRessesLeftU(areWeIncrementing ? PressesLeftU++ : PressesLeftU--)
+        if(letter == "v") setPRessesLeftV(areWeIncrementing ? PressesLeftV++ : PressesLeftV--)
+        if(letter == "w") setPRessesLeftW(areWeIncrementing ? PressesLeftW++ : PressesLeftW--)
+        if(letter == "x") setPRessesLeftX(areWeIncrementing ? PressesLeftX++ : PressesLeftX--)
+        if(letter == "y") setPRessesLeftY(areWeIncrementing ? PressesLeftY++ : PressesLeftY--)
+        if(letter == "z") setPRessesLeftZ(areWeIncrementing ? PressesLeftZ++ : PressesLeftZ--)
+    }
+
     const domElements = {
         WordLengthButtons: wordLengthOptions.map(option => {
             return <button type="button" onClick={() => 
                 setCurrentWordLength(parseInt(option))
             }>{option}</button>
         }),
-        LetterButtons: alphabet.map(letter => {
-            let letterValue = alphabet.find(a => a.letter == letter).value;
-            let classes = `${letter.letter} pressesLeft-${letter.pressesLeft}`
+        LetterButtons: Object.keys(alphabet).map(letter => {
+            let letterValue = alphabet[letter];
+            let pressesLeft = eval(`PressesLeft${letter.toUpperCase()}`);
             return <button 
-                    className={buttonClassBuilder(letter)} 
+                    className={`pressesLeft-${pressesLeft}`} 
                     type="button" onClick={() => {
                     processLetterPress(letter)
                     }}>
@@ -69,14 +124,6 @@ function Game() {
         CurrentAnswersDisplay: CurrentAnswers.map(answer => {
             return <div>{answer}</div>
         })
-    }
-
-    function buttonClassBuilder(letter) {
-        let letterObj = alphabet.find(a => a.letter == letter);
-        if (letterObj.pressesLeft == 3) return `${letter} pressesLeft-3`
-        if (letterObj.pressesLeft == 2) return `${letter} pressesLeft-2`
-        if (letterObj.pressesLeft == 1) return `${letter} pressesLeft-1`
-        return `${letter} pressesLeft-0`
     }
 
     function SubmitWord() {
@@ -94,8 +141,8 @@ function Game() {
     function CalculateCurrentScore() {
         if (CurrentAnswers.length === 0) return;
         var points = CurrentAnswers.map(answer => answer.split("")
-            .map(letter => alphabet.find(a => a.letter == letter).value))
-            // .flat()
+            .map(letter => alphabet[letter]))
+            .flat()
             .reduce((x, y) => { return x + y; });
         setScore(points);
     }
@@ -120,7 +167,7 @@ function Game() {
             SubmitWord();
             return;
         }
-        if (alphabet.map(a => a.letter).includes(event.key)) {
+        if (Object.keys(alphabet).includes(event.key)) {
             processLetterPress(event.key);
             return;
         }

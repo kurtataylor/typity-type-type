@@ -1,140 +1,36 @@
+const alphabet = {
+    "a": 0,
+    "b": 3,
+    "c": 3,
+    "d": 2,
+    "e": 0,
+    "f": 4,
+    "g": 2,
+    "h": 4,
+    "i": 0,
+    "j": 8,
+    "k": 5,
+    "l": 1,
+    "m": 3,
+    "n": 1,
+    "o": 0,
+    "p": 3,
+    "q": 10,
+    "r": 1,
+    "s": 1,
+    "t": 1,
+    "u": 0,
+    "v": 4,
+    "w": 4,
+    "x": 8,
+    "y": 4,
+    "z": 10,
+}
+
 const PossiblePresses = 3;
 
-const alphabet = [
-    {
-        letter: "a",
-        value: 0,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "b",
-        value: 3,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "c",
-        value: 3,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "d",
-        value: 2,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "e",
-        value: 0,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "f",
-        value: 4,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "g",
-        value: 2,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "h",
-        value: 4,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "i",
-        value: 0,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "j",
-        value: 8,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "k",
-        value: 5,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "l",
-        value: 1,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "m",
-        value: 3,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "n",
-        value: 1,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "o",
-        value: 0,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "p",
-        value: 3,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "q",
-        value: 10,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "r",
-        value: 1,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "s",
-        value: 1,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "t",
-        value: 1,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "u",
-        value: 0,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "v",
-        value: 4,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "w",
-        value: 4,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "x",
-        value: 8,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "y",
-        value: 4,
-        pressesLeft: PossiblePresses,
-    },
-    {
-        letter: "z",
-        value: 10,
-        pressesLeft: PossiblePresses,
-    },
-]
-
 function getLetterValue(letter) {
-    return alphabet.find(l => l.letter == letter).value;
+    return alphabet[letter];
 }
 
 const wordLengthOptions = [3, 4, 5, 6, 7];
@@ -146,5 +42,5 @@ const countColors = {
     3: "green",
 };
 
-export { alphabet, getLetterValue, countColors, wordLengthOptions}
+export { alphabet, PossiblePresses, getLetterValue, countColors, wordLengthOptions}
 export default alphabet;

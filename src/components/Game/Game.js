@@ -28,14 +28,15 @@ function Game() {
     var [CurrentWord, setCurrentWord] = useState([]);
     function processLetterPress(letter){
         if(CurrentWord.length >= CurrentWordLength) return; //add feedback for letter length met
-        PressesLeftAdjustor(letter, true)
+        if(alphabet[letter] != 0 && eval(`PressesLeft${letter.toUpperCase()}`) == 0) return;
+        PressesLeftAdjustor(letter, false)
         //find dom element and update class
         setCurrentWord(arr => [...arr, `${letter}`]);
     }
     function Backspace() {
         if(CurrentWord.length <= 0) return;
         let letter = CurrentWord[CurrentWord.length - 1];        
-        PressesLeftAdjustor(letter, false);
+        PressesLeftAdjustor(letter, true);
         //find dom element and update classupdate class
         setCurrentWord((arr) => arr.slice(0, -1));
     }
@@ -66,8 +67,8 @@ function Game() {
     var [PressesLeftP, setPRessesLeftP] = useState(3);
     var [PressesLeftQ, setPRessesLeftQ] = useState(3);
     var [PressesLeftR, setPRessesLeftR] = useState(3);
-    var [PressesLeftT, setPRessesLeftS] = useState(3);
-    var [PressesLeftS, setPRessesLeftT] = useState(3);
+    var [PressesLeftT, setPRessesLeftT] = useState(3);
+    var [PressesLeftS, setPRessesLeftS] = useState(3);
     var [PressesLeftU, setPRessesLeftU] = useState(3);
     var [PressesLeftV, setPRessesLeftV] = useState(3);
     var [PressesLeftW, setPRessesLeftW] = useState(3);
@@ -75,32 +76,35 @@ function Game() {
     var [PressesLeftY, setPRessesLeftY] = useState(3);
     var [PressesLeftZ, setPRessesLeftZ] = useState(3);
     function PressesLeftAdjustor(letter, areWeIncrementing) {
-        if(letter == "a") setPRessesLeftA(areWeIncrementing ? PressesLeftA++ : PressesLeftA--)
-        if(letter == "b") setPRessesLeftB(areWeIncrementing ? PressesLeftB++ : PressesLeftB--)
-        if(letter == "c") setPRessesLeftC(areWeIncrementing ? PressesLeftC++ : PressesLeftC--)
-        if(letter == "d") setPRessesLeftD(areWeIncrementing ? PressesLeftD++ : PressesLeftD--)
-        if(letter == "e") setPRessesLeftE(areWeIncrementing ? PressesLeftE++ : PressesLeftE--)
-        if(letter == "f") setPRessesLeftF(areWeIncrementing ? PressesLeftF++ : PressesLeftF--)
-        if(letter == "g") setPRessesLeftG(areWeIncrementing ? PressesLeftG++ : PressesLeftG--)
-        if(letter == "h") setPRessesLeftH(areWeIncrementing ? PressesLeftH++ : PressesLeftH--)
-        if(letter == "i") setPRessesLeftI(areWeIncrementing ? PressesLeftI++ : PressesLeftI--)
-        if(letter == "j") setPRessesLeftJ(areWeIncrementing ? PressesLeftJ++ : PressesLeftJ--)
-        if(letter == "k") setPRessesLeftK(areWeIncrementing ? PressesLeftK++ : PressesLeftK--)
-        if(letter == "l") setPRessesLeftL(areWeIncrementing ? PressesLeftL++ : PressesLeftL--)
-        if(letter == "m") setPRessesLeftM(areWeIncrementing ? PressesLeftM++ : PressesLeftM--)
-        if(letter == "n") setPRessesLeftN(areWeIncrementing ? PressesLeftN++ : PressesLeftN--)
-        if(letter == "o") setPRessesLeftO(areWeIncrementing ? PressesLeftO++ : PressesLeftO--)
-        if(letter == "p") setPRessesLeftP(areWeIncrementing ? PressesLeftP++ : PressesLeftP--)
-        if(letter == "q") setPRessesLeftQ(areWeIncrementing ? PressesLeftQ++ : PressesLeftQ--)
-        if(letter == "r") setPRessesLeftR(areWeIncrementing ? PressesLeftR++ : PressesLeftR--)
-        if(letter == "s") setPRessesLeftS(areWeIncrementing ? PressesLeftS++ : PressesLeftS--)
-        if(letter == "t") setPRessesLeftT(areWeIncrementing ? PressesLeftT++ : PressesLeftT--)
-        if(letter == "u") setPRessesLeftU(areWeIncrementing ? PressesLeftU++ : PressesLeftU--)
-        if(letter == "v") setPRessesLeftV(areWeIncrementing ? PressesLeftV++ : PressesLeftV--)
-        if(letter == "w") setPRessesLeftW(areWeIncrementing ? PressesLeftW++ : PressesLeftW--)
-        if(letter == "x") setPRessesLeftX(areWeIncrementing ? PressesLeftX++ : PressesLeftX--)
-        if(letter == "y") setPRessesLeftY(areWeIncrementing ? PressesLeftY++ : PressesLeftY--)
-        if(letter == "z") setPRessesLeftZ(areWeIncrementing ? PressesLeftZ++ : PressesLeftZ--)
+        if(letter == "a") setPRessesLeftA(areWeIncrementing ? PressesLeftA + 1 : PressesLeftA - 1)
+        if(letter == "b") setPRessesLeftB(areWeIncrementing ? PressesLeftB + 1 : PressesLeftB - 1)
+        if(letter == "b") setPRessesLeftB(areWeIncrementing ? PressesLeftB + 1 : PressesLeftB - 1)
+        if(letter == "b") setPRessesLeftB(areWeIncrementing ? PressesLeftB + 1 : PressesLeftB - 1)
+        if(letter == "c") setPRessesLeftC(areWeIncrementing ? PressesLeftC + 1 : PressesLeftC - 1)
+        if(letter == "d") setPRessesLeftD(areWeIncrementing ? PressesLeftD + 1 : PressesLeftD - 1)
+        if(letter == "e") setPRessesLeftE(areWeIncrementing ? PressesLeftE + 1 : PressesLeftE - 1)
+        if(letter == "f") setPRessesLeftF(areWeIncrementing ? PressesLeftF + 1 : PressesLeftF - 1)
+        if(letter == "g") setPRessesLeftG(areWeIncrementing ? PressesLeftG + 1 : PressesLeftG - 1)
+        if(letter == "h") setPRessesLeftH(areWeIncrementing ? PressesLeftH + 1 : PressesLeftH - 1)
+        if(letter == "i") setPRessesLeftI(areWeIncrementing ? PressesLeftI + 1 : PressesLeftI - 1)
+        if(letter == "j") setPRessesLeftJ(areWeIncrementing ? PressesLeftJ + 1 : PressesLeftJ - 1)
+        if(letter == "k") setPRessesLeftK(areWeIncrementing ? PressesLeftK + 1 : PressesLeftK - 1)
+        if(letter == "l") setPRessesLeftL(areWeIncrementing ? PressesLeftL + 1 : PressesLeftL - 1)
+        if(letter == "m") setPRessesLeftM(areWeIncrementing ? PressesLeftM + 1 : PressesLeftM - 1)
+        if(letter == "n") setPRessesLeftN(areWeIncrementing ? PressesLeftN + 1 : PressesLeftN - 1)
+        if(letter == "o") setPRessesLeftO(areWeIncrementing ? PressesLeftO + 1 : PressesLeftO - 1)
+        if(letter == "p") setPRessesLeftP(areWeIncrementing ? PressesLeftP + 1 : PressesLeftP - 1)
+        if(letter == "q") setPRessesLeftQ(areWeIncrementing ? PressesLeftQ + 1 : PressesLeftQ - 1)
+        if(letter == "r") setPRessesLeftR(areWeIncrementing ? PressesLeftR + 1 : PressesLeftR - 1)
+        if(letter == "s") setPRessesLeftS(areWeIncrementing ? PressesLeftS + 1 : PressesLeftS - 1)
+        if(letter == "t") setPRessesLeftT(areWeIncrementing ? PressesLeftT + 1 : PressesLeftT - 1)
+        if(letter == "u") setPRessesLeftU(areWeIncrementing ? PressesLeftU + 1 : PressesLeftU - 1)
+        if(letter == "v") setPRessesLeftV(areWeIncrementing ? PressesLeftV + 1 : PressesLeftV - 1)
+        if(letter == "w") setPRessesLeftW(areWeIncrementing ? PressesLeftW + 1 : PressesLeftW - 1)
+        if(letter == "x") setPRessesLeftX(areWeIncrementing ? PressesLeftX + 1 : PressesLeftX - 1)
+        if(letter == "y") setPRessesLeftY(areWeIncrementing ? PressesLeftY + 1 : PressesLeftY - 1)
+        if(letter == "z") setPRessesLeftZ(areWeIncrementing ? PressesLeftZ + 1 : PressesLeftZ - 1)
+        console.log(letter + " : " + eval(`PressesLeft${letter.toUpperCase()}`));
     }
 
     const domElements = {
@@ -113,7 +117,7 @@ function Game() {
             let letterValue = alphabet[letter];
             let pressesLeft = eval(`PressesLeft${letter.toUpperCase()}`);
             return <button 
-                    className={`pressesLeft-${pressesLeft}`} 
+                    className={letterValue == 0 ? `consonant` : `${letter} pressesLeft-${pressesLeft}`} 
                     type="button" onClick={() => {
                     processLetterPress(letter)
                     }}>
@@ -157,7 +161,6 @@ function Game() {
     }
 
     function ProcessKeypress(event) {
-        console.log(event.key);
         event.preventDefault();
         if (event.key === "Backspace") {
             Backspace();

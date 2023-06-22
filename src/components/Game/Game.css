@@ -44,7 +44,8 @@
 }
 
 .keyboard > button {
-    padding: 1em;;
+    padding: 1em;
+    outline: none;
 }
 
 .pressesLeft-0 {
@@ -61,6 +62,10 @@
 
 .pressesLeft-3 {
     background-color: turquoise;
+}
+
+.consonant {
+    background-color: lime;
 }
 
 .keyLetter {

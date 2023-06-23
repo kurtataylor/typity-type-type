@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/typity-type-type/static/css/main.d57031db.css",
+    "main.js": "/typity-type-type/static/js/main.5672f855.js",
+    "static/js/787.426ccf61.chunk.js": "/typity-type-type/static/js/787.426ccf61.chunk.js",
+    "index.html": "/typity-type-type/index.html",
+    "main.d57031db.css.map": "/typity-type-type/static/css/main.d57031db.css.map",
+    "main.5672f855.js.map": "/typity-type-type/static/js/main.5672f855.js.map",
+    "787.426ccf61.chunk.js.map": "/typity-type-type/static/js/787.426ccf61.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d57031db.css",
+    "static/js/main.5672f855.js"
+  ]
+}

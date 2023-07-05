@@ -1,0 +1,43 @@
+.logoHolder {
+    width: 100%;    
+}
+
+  .logo {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: .5em;
+    padding: 2em;
+    color: var(--main-purple);
+    background-color: var(--main-red);
+    /* background: repeating-linear-gradient(
+        300deg,
+        var(--main-red),
+        var(--main-red) 20%,
+        var(--main-yellow) 21%,
+        var(--main-yellow) 40%,
+        var(--main-green) 41%,
+        var(--main-green) 60%,
+        var(--main-orange) 61%,
+        var(--main-orange) 80%,
+        var(--main-pink) 81%,
+        var(--main-pink) 100%
+    ); */
+}
+
+.logoLetter {
+    font-size: 1.3em;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.logoTextHolder {
+    display: inline-block;
+}
+
+.logoText {
+    font-size: large;
+    font-weight:bolder;
+    display: block;
+    /* transform: rotate(15deg); */
+}

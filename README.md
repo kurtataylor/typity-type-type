@@ -1,3 +1,5 @@
+Want to try it out? The game is published over here => https://kurtataylor.github.io/typity-type-type/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

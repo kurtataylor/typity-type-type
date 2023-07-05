@@ -92,6 +92,28 @@
     color: var(--main-pink);
 }
 
+.highScores {
+    text-align: center;
+    color: var(--main-teal);
+    background-color: var(--dark-background);
+    border-radius: .25em;
+    padding: .25em;
+    margin: 1em;
+}
+
+.highScore {
+    display: inline-block;
+    color: var(--main-pink);
+    background-color: var(--light-background);
+    padding: .25em 1em;
+    margin: .25em;
+    border-radius: .25em;
+}
+
+.highScore span {
+    color: var(--main-green);
+}
+
 .playspace {
     
 }

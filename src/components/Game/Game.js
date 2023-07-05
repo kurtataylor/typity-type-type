@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { wordLengthOptions, alphabet } from '../../utility/constants';
 import './Game.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,6 +17,14 @@ function Game() {
             <div className="menuButtonHolder">
                 {domElements.WordLengthButtons}
             </div>
+            <div className='highScores'>
+                <h2>Your High Scores</h2>
+                <div className='highScore'><span>Three Letter Words: </span>{threeLetterTopScore}</div>
+                <div className='highScore'><span>Four Letter Words: </span>{fourLetterTopScore}</div>
+                <div className='highScore'><span>Five Letter Words: </span>{fiveLetterTopScore}</div>
+                <div className='highScore'><span>Six Letter Words: </span>{sixLetterTopScore}</div>
+                <div className='highScore'><span>Seven Letter Words: </span>{sevenLetterTopScore}</div>
+            </div>
         </div>
         return <div className="gameBoard">
             <div className="answers">{domElements.CurrentAnswersDisplay}</div>
@@ -30,7 +38,7 @@ function Game() {
             </div>
             <div className="score">
                 <div>{CurrentWordLength} letter words</div>
-                <div>Score {CalculateScore(CurrentAnswers)}</div>
+                <div onChange={tryToUpdateHighScore(CalculateScore(CurrentAnswers))}>Score {CalculateScore(CurrentAnswers)}</div>
             </div>
 
             <div className="resetHolder"><button className="reset" type="button" onClick={ResetGame}>Reset</button></div>
@@ -184,6 +192,67 @@ function Game() {
             addWordToCurrentAnswers(word);
             resetCurrentWord();
         }
+    }
+
+    const [threeLetterTopScore, setThreeLetterTopScore] = useState(() => {
+        const saved = localStorage.getItem("ThreeLetterTopScore");
+        const initialValue = JSON.parse(saved);
+        return initialValue || 0;
+    });
+    const [fourLetterTopScore, setFourLetterTopScore] = useState(() => {
+        const saved = localStorage.getItem("FourLetterTopScore");
+        const initialValue = JSON.parse(saved);
+        return initialValue || 0;
+    });
+    const [fiveLetterTopScore, setFiveLetterTopScore] = useState(() => {
+        const saved = localStorage.getItem("FiveLetterTopScore");
+        const initialValue = JSON.parse(saved);
+        return initialValue || 0;
+    });
+    const [sixLetterTopScore, setSixLetterTopScore] = useState(() => {
+        const saved = localStorage.getItem("SixLetterTopScore");
+        const initialValue = JSON.parse(saved);
+        return initialValue || 0;
+    });
+    const [sevenLetterTopScore, setSevenLetterTopScore] = useState(() => {
+        const saved = localStorage.getItem("SevenLetterTopScore");
+        const initialValue = JSON.parse(saved);
+        return initialValue || 0;
+    });
+    useEffect(() => {localStorage.setItem("ThreeLetterTopScore", JSON.stringify(threeLetterTopScore));
+    }, [threeLetterTopScore]);
+    useEffect(() => {localStorage.setItem("FourLetterTopScore", JSON.stringify(fourLetterTopScore));
+    }, [fourLetterTopScore]);
+    useEffect(() => {localStorage.setItem("FiveLetterTopScore", JSON.stringify(fiveLetterTopScore));
+    }, [fiveLetterTopScore]);
+    useEffect(() => {localStorage.setItem("SixLetterTopScore", JSON.stringify(sixLetterTopScore));
+    }, [sixLetterTopScore]);
+    useEffect(() => {localStorage.setItem("SevenLetterTopScore", JSON.stringify(sevenLetterTopScore));
+    }, [sevenLetterTopScore]);
+    
+    function tryToUpdateHighScore(score) {
+        let currentHighScore = getTheCurrentHighScore();
+        console.log(score + " : "  + currentHighScore);
+        if (score > currentHighScore) setHighScore(CalculateScore(CurrentAnswers));
+    }
+
+    function setHighScore(score) {
+        console.log("saving => " + score)
+        if (CurrentWordLength === 3) return setThreeLetterTopScore(score);
+        if (CurrentWordLength === 4) return setFourLetterTopScore(score);
+        if (CurrentWordLength === 5) return setFiveLetterTopScore(score);
+        if (CurrentWordLength === 6) return setSixLetterTopScore(score);
+        if (CurrentWordLength === 7) return setSevenLetterTopScore(score);
+        return;
+    }
+
+    function getTheCurrentHighScore() {
+        if (CurrentWordLength === 3) return threeLetterTopScore;
+        if (CurrentWordLength === 4) return fourLetterTopScore;
+        if (CurrentWordLength === 5) return fiveLetterTopScore;
+        if (CurrentWordLength === 6) return sixLetterTopScore;
+        if (CurrentWordLength === 7) return sevenLetterTopScore;
+        return 100000;
     }
 
     function CalculateScore() {

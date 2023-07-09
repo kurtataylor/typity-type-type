@@ -36,12 +36,13 @@ function Game() {
                     <button className="backspace" type="button" onClick={Backspace}><FontAwesomeIcon icon={faDeleteLeft} /></button>
                 </div>
             </div>
-            <div className="score">
-                <div>{CurrentWordLength} letter words</div>
-                <div onChange={tryToUpdateHighScore(CalculateScore(CurrentAnswers))}>Score {CalculateScore(CurrentAnswers)}</div>
+            <div className='adminArea'>
+                <div className="score">
+                    <div onChange={tryToUpdateHighScore(CalculateScore(CurrentAnswers))}>Score <span className='scoreHighlight'>{CalculateScore(CurrentAnswers)}</span></div>
+                    <div className='scoreSubText'>{CurrentWordLength} letter words</div>
+                </div>
+                <div className="resetHolder"><button className="reset" type="button" onClick={ResetGame}>Done</button></div>
             </div>
-
-            <div className="resetHolder"><button className="reset" type="button" onClick={ResetGame}>Reset</button></div>
         </div>
     }
 
